@@ -1,0 +1,133 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ---------- Ambient gradient background ----------
+   Two layered radial washes + a soft grid of dots. Visible but subtle.
+   It sits behind everything and follows the current theme. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(1200px 800px at 8% -10%, var(--bg-gradient-a) 0%, transparent 60%),
+    radial-gradient(1000px 700px at 100% 10%, var(--bg-gradient-c) 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg-gradient-b) 0%, var(--bg) 100%);
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(34, 197, 94, 0.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: .5;
+  mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 65%);
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 65%);
+}
+
+[data-theme="dark"] body::after {
+  background-image: radial-gradient(rgba(74, 222, 128, 0.10) 1px, transparent 1px);
+  opacity: .35;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--dur-fast) var(--ease);
+}
+a:hover { color: var(--accent-hover); }
+
+h1, h2, h3, h4 {
+  margin: 0 0 var(--space-3) 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.22;
+  color: var(--fg);
+}
+h1 { font-size: 30px; }
+h2 { font-size: 21px; }
+h3 { font-size: 16px; }
+p { margin: 0 0 var(--space-3) 0; line-height: 1.6; color: var(--fg); }
+
+input, select, textarea, button { font: inherit; color: inherit; }
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+  border-radius: var(--radius-sm);
+}
+
+code, pre { font-family: var(--font-mono); font-size: 0.9em; }
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: var(--space-5);
+  position: relative;
+  z-index: 0;
+}
+
+.stack > * + * { margin-top: var(--space-3); }
+.row { display: flex; gap: var(--space-3); align-items: center; }
+.row-between { display: flex; gap: var(--space-3); align-items: center; justify-content: space-between; }
+.muted { color: var(--fg-muted); }
+.subtle { color: var(--fg-subtle); }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--fg-subtle); background-clip: padding-box; }
+
+/* Utilities */
+.text-sm { font-size: 13.5px; }
+.text-xs { font-size: 12px; }
+.text-lg { font-size: 16.5px; }
+.font-semibold { font-weight: 600; }
+.font-medium { font-weight: 500; }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
+@keyframes floatSlow {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50%      { transform: translate(10px,-14px) scale(1.02); }
+}
+
+.fade-in { animation: fadeIn var(--dur) var(--ease); }
+.slide-up { animation: slideUp var(--dur) var(--ease); }
+.scale-in { animation: scaleIn 200ms var(--ease); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

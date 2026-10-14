@@ -1,0 +1,219 @@
+/* =========================================================
+   Design tokens — green + mint, light + dark
+   ========================================================= */
+
+:root {
+  /* Brand — green */
+  --brand-50:  #f0fdf4;
+  --brand-100: #dcfce7;
+  --brand-200: #bbf7d0;
+  --brand-300: #86efac;
+  --brand-400: #4ade80;
+  --brand-500: #22c55e;
+  --brand-600: #16a34a;
+  --brand-700: #15803d;
+  --brand-800: #166534;
+  --brand-900: #14532d;
+
+  /* Accents */
+  --accent-teal: #0d9488;
+  --accent-lime: #65a30d;
+
+  /* Semantic */
+  --success-500: #10b981;
+  --success-600: #059669;
+  --success-bg:  #d1fae5;
+  --success-fg:  #065f46;
+
+  --warning-500: #f59e0b;
+  --warning-600: #d97706;
+  --warning-bg:  #fef3c7;
+  --warning-fg:  #92400e;
+
+  --danger-500:  #ef4444;
+  --danger-600:  #dc2626;
+  --danger-bg:   #fee2e2;
+  --danger-fg:   #991b1b;
+
+  /* Radii */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-full: 999px;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 28px;
+  --space-7: 40px;
+  --space-8: 56px;
+
+  /* Font */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Motion */
+  --ease: cubic-bezier(.2,.7,.3,1);
+  --dur-fast: 140ms;
+  --dur: 220ms;
+
+  /* Light theme */
+  --bg: #f6fbf7;                        /* soft mint wash */
+  --bg-gradient-a: #f0fdf4;             /* top-left tint */
+  --bg-gradient-b: #f6fbf7;             /* base */
+  --bg-gradient-c: #ecfdf5;             /* bottom-right tint */
+  --bg-elev: #ffffff;
+  --bg-sunken: #eef6f0;
+  --bg-overlay: rgba(15, 23, 42, 0.5);
+
+  --fg: #0f1f17;                        /* deep forest text */
+  --fg-muted: #4b5f56;
+  --fg-subtle: #74897e;
+
+  --border: #dcece2;
+  --border-strong: #b7d8c4;
+  --border-focus: var(--brand-500);
+
+  --accent: var(--brand-600);
+  --accent-hover: var(--brand-700);
+  --accent-fg: #ffffff;
+  --accent-soft: #dcfce7;
+  --accent-soft-fg: #166534;
+
+  --shadow-xs: 0 1px 2px rgba(16, 40, 26, 0.04);
+  --shadow-sm: 0 1px 3px rgba(16, 40, 26, 0.06), 0 1px 2px rgba(16, 40, 26, 0.04);
+  --shadow-md: 0 6px 16px rgba(16, 40, 26, 0.08), 0 2px 4px rgba(16, 40, 26, 0.04);
+  --shadow-lg: 0 18px 40px rgba(16, 40, 26, 0.12), 0 6px 12px rgba(16, 40, 26, 0.06);
+  --shadow-focus: 0 0 0 3px rgba(34, 197, 94, 0.30);
+  --shadow-green: 0 10px 24px rgba(22, 163, 74, 0.25);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --bg: #0a1410;
+  --bg-gradient-a: #0b1a13;
+  --bg-gradient-b: #08110d;
+  --bg-gradient-c: #0f2419;
+  --bg-elev: #12211a;
+  --bg-sunken: #0e1a14;
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+
+  --fg: #e6f3eb;
+  --fg-muted: #9bb3a6;
+  --fg-subtle: #6f8b7d;
+
+  --border: #1f3a2c;
+  --border-strong: #2c5240;
+  --border-focus: var(--brand-400);
+
+  --accent: var(--brand-500);
+  --accent-hover: var(--brand-400);
+  --accent-fg: #062a18;
+  --accent-soft: rgba(34,197,94,0.14);
+  --accent-soft-fg: #86efac;
+
+  --shadow-xs: 0 1px 2px rgba(0,0,0,.45);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.5);
+  --shadow-md: 0 6px 16px rgba(0,0,0,.45);
+  --shadow-lg: 0 18px 40px rgba(0,0,0,.55);
+  --shadow-focus: 0 0 0 3px rgba(74, 222, 128, 0.35);
+  --shadow-green: 0 10px 24px rgba(34, 197, 94, 0.20);
+}
+/* =========================================================
+   Business shell (Phase 8.9)
+   ========================================================= */
+
+:root {
+  /* Sidebar (deep green) — same in both themes for brand consistency */
+  --biz-sidebar-bg: #2e7d5b;
+  --biz-sidebar-bg-2: #266b4e;
+  --biz-sidebar-fg: #ffffff;
+  --biz-sidebar-muted: rgba(255, 255, 255, 0.72);
+  --biz-sidebar-active-bg: #ffffff;
+  --biz-sidebar-active-fg: #1e5c43;
+  --biz-sidebar-hover-bg: rgba(255, 255, 255, 0.10);
+  --biz-sidebar-border: rgba(255, 255, 255, 0.14);
+
+  /* Content area */
+  --biz-bg: #f4f7f5;
+  --biz-card: #ffffff;
+  --biz-border: #e4ebe6;
+  --biz-text: #0f1f17;
+  --biz-text-muted: #6b7c74;
+
+  /* Charts */
+  --chart-1: #8fd6b4;
+  --chart-2: #2e7d5b;
+  --chart-3: #f6c56b;
+  --chart-4: #b4a7f0;
+  --chart-5: #f4a4a4;
+}
+
+[data-theme="dark"] {
+  --biz-sidebar-bg: #0f2a1d;
+  --biz-sidebar-bg-2: #0a1f15;
+  --biz-sidebar-fg: #e6f3eb;
+  --biz-sidebar-muted: rgba(230, 243, 235, 0.62);
+  --biz-sidebar-active-bg: rgba(74, 222, 128, 0.16);
+  --biz-sidebar-active-fg: #86efac;
+  --biz-sidebar-hover-bg: rgba(255, 255, 255, 0.06);
+  --biz-sidebar-border: rgba(255, 255, 255, 0.08);
+
+  --biz-bg: #08110d;
+  --biz-card: #0f1f17;
+  --biz-border: #1c3a2a;
+  --biz-text: #e6f3eb;
+  --biz-text-muted: #9bb3a6;
+
+  --chart-1: #4ade80;
+  --chart-2: #22c55e;
+  --chart-3: #fcd34d;
+  --chart-4: #a78bfa;
+  --chart-5: #fca5a5;
+}
+
+/* =========================================================
+   Admin shell (Phase 8.13) — dark navy + violet accent
+   ========================================================= */
+
+:root {
+  --admin-accent: #7c5cff;             /* violet */
+  --admin-accent-2: #a78bfa;
+  --admin-accent-soft: rgba(124, 92, 255, 0.14);
+  --admin-accent-fg: #ffffff;
+
+  --admin-sidebar-bg: #0f1330;          /* deep navy */
+  --admin-sidebar-bg-2: #141a3d;
+  --admin-sidebar-fg: #e7e9fb;
+  --admin-sidebar-muted: rgba(231, 233, 251, 0.62);
+  --admin-sidebar-active-bg: rgba(124, 92, 255, 0.20);
+  --admin-sidebar-active-fg: #cfc4ff;
+  --admin-sidebar-hover-bg: rgba(255, 255, 255, 0.06);
+  --admin-sidebar-border: rgba(255, 255, 255, 0.08);
+
+  --admin-bg: #f6f6fb;
+  --admin-card: #ffffff;
+  --admin-border: #e6e6f2;
+  --admin-text: #14142b;
+  --admin-text-muted: #5b5b78;
+
+  /* Chart palette (matches the reference) */
+  --admin-chart-1: #7c5cff;
+  --admin-chart-2: #22d3a5;
+  --admin-chart-3: #4f8cff;
+  --admin-chart-4: #f472b6;
+  --admin-chart-5: #fbbf24;
+}
+
+[data-theme="dark"] {
+  --admin-bg: #0a0e23;
+  --admin-card: #12163a;
+  --admin-border: #1e2450;
+  --admin-text: #e7e9fb;
+  --admin-text-muted: #9aa0c7;
+}
